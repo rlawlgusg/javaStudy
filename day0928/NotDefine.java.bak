@@ -1,0 +1,9 @@
+class NotDefine 
+{
+	public static void main(String[] args) 
+	{
+	
+		name = "김지현";
+		System.out.println("이름은"+name);
+	}
+}
