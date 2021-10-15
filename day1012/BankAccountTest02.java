@@ -1,14 +1,17 @@
 //배열의 요소가 자동으로 초기화 되듯이 클래스의 멤버변수들도 자료형에 따라 정수는 0 실수는 0.0
 //boolean은 false로 자동으로 초기화됌
 
-class BankAccount{
+ class BankAccount{
 	int balance; // 잔액을 표시하는 변수
 	
 	void deposit(int amount){
 		balance += amount; 
 	}
 	void withdraw(int amount){
+		if(amount <= balance){
 		balance -= amount;
+		}else{
+			System.out.println("잔액이 부족합니다");
 		}
 	}
 	public int getBalance(){
@@ -30,7 +33,7 @@ class BankAccount{
 }
 
 
-class BankAccountTest
+public class BankAccountTest02
 {
 	public static void main(String[] args) 
 	{
@@ -62,3 +65,11 @@ class BankAccountTest
 		
 	}
 }
+
+/*
+class BankAccount is public, should be declared in a file named BankAccount.java
+public class BankAccount{
+
+하나의 파일에 두개의 이상의 클래스로 구성될 때에는 반드시 메인이 있는 클래스 이름으로 파일명을 저장해야 하며 
+크 클래스만이 public이어야 함!
+*/
