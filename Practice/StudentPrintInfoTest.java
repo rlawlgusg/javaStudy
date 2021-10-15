@@ -2,6 +2,7 @@ class Student{
 	protected String name;
 	protected int classof;
 	protected int level;
+	protected String major;
 	protected int credit;
 	
 	public void setName(String name){
@@ -22,6 +23,12 @@ class Student{
 	public int getLevel(){
 		return level;
 	}
+	public void setMajor(String major){
+		this.major = major;
+	}
+	public String getMajor(){
+		return major;
+	}
 	public void setCredit(int credit){
 		this.credit = credit;
 	}
@@ -30,14 +37,15 @@ class Student{
 	}
 	public Student(){}
 
-	public Student(String name,int classof, int level, int credit){
+	public Student(String name,int classof, int level,String major, int credit){
 		this.name = name;
 		this.classof = classof;
 		this.level = level;
+		this.major = major;
 		this.credit = credit;
 	}
 	public String toString(){
-		return "이름: "+name+" 학번: "+classof+" 학년: "+level+" 이수 학점 수: "+credit;
+		return "이름: "+name+" 학번: "+classof+" 학년: "+level+" 학과: "+major+" 이수 학점 수: "+credit;
 	}
 }
 
@@ -47,8 +55,8 @@ class UnderGraduate extends Student{
 
 	public UnderGraduate(){}
 
-	public UnderGraduate(String name,int classof, int level, int credit, String club){
-		super(name, classof, level, credit);
+	public UnderGraduate(String name,int classof, int level, String major, int credit, String club){
+		super(name, classof, level, major, credit);
 		this.club = club;
 	}
 	public void setClub(String club){
@@ -66,8 +74,8 @@ class Graduate extends Student{
 	 private String assistant;
 	 private double scholar;
 	 
-	 public Graduate(String name,int classof, int level, int credit, String assistant, double scholar){
-		super(name, classof, level, credit);
+	 public Graduate(String name,int classof, int level,String major, int credit, String assistant, double scholar){
+		super(name, classof, level, major, credit);
 		if(assistant.equals("교육 조교")){
 		this.assistant = "교육 조교";
 		}else if(assistant.equals("연구 조교")){
@@ -106,11 +114,11 @@ class StudentPrintInfoTest
 {
 	public static void main(String[] args) 
 	{
-		Student s = new Student("홍길동",92,3,24);
+		Student s = new Student("홍길동",92,3,"행정학과",24);
 		System.out.println(s);
-		UnderGraduate u = new UnderGraduate("유관순",98,2,18,"농구 동아리");
+		UnderGraduate u = new UnderGraduate("유관순",98,2,"경영학과",18,"농구 동아리");
 		System.out.println(u);
-		Graduate g = new Graduate("김유신",99,4,20,"교육 조교",0.7);
+		Graduate g = new Graduate("김유신",99,4,"국문학과",20,"교육 조교",0.7);
 		System.out.println(g);
 		g.setScholar(1.2); //작동x
 		System.out.println(g);
